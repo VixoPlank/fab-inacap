@@ -8,7 +8,7 @@ const Fabrica_4_0 = () => {
       id="fabrica_4_0"
       className="grid grid-cols-1 sm:grid-cols-2 gap-y-16 gap-x-14 sm:pt-0 pt-16 px-5 sm:px-20 overflow-hidden"
     >
-      <div className="col-span-2 sm:col-span-1">
+      <div className="col-span-2">
         <Image
           src="/fabrica_4_0.png"
           width={1000}

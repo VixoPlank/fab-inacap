@@ -9,9 +9,9 @@ const Header = () => {
         {/* Logo del FAB */}
         <Link href="/">
           <img
-            src="/logo-fab.jpg"
+            src="/logo-fab.png"
             alt="LogoFab"
-            className="w-24 relative z-20 mt-7 "
+            className="w-48 lg:-mt-[6px] md:block"
           />
         </Link>
         {/* Logo del Inacap */}

@@ -4,10 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Fab = () => {
   return (
-    <section
-      id="fab"
-      className="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-16 gap-x-14 sm:pt-10 pt-16 px-5 sm:px-20 overflow-hidden pb-8 "
-    >
+    <section className="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-16 gap-x-14 sm:pt-10 pt-16 px-5 sm:px-20 overflow-hidden pb-8 ">
       <div className="w-full col-span-2 sm:col-span-1">
         <h1 className="text-4xl uppercase font-bold ">
           Fab Lab <i>(Fabrication Laboratory)</i>

@@ -4,8 +4,8 @@ import DarkMode from "./DarkMode";
 import MenuMobile from "./MenuMobile";
 const Header = () => {
   return (
-    <header className="py-3 flex bg-slate-200 sticky top-0 items-center lg:px-44 justify-between px-4 dark:bg-black z-10">
-      <div className="flex justify-between lg:w-full ">
+    <header className="py-3 flex bg-slate-200 sticky top-0 items-center lg:px-44 lg:justify-center justify-between px-4 dark:bg-black z-10">
+      <div className="flex justify-between lg:w-full max-w-[75rem] ">
         {/* Logo del FAB */}
         <Link href="/">
           <img
@@ -31,7 +31,7 @@ const Header = () => {
             <Link href="/">Inicio</Link>
           </li>
           <li>
-            <Link href="/#fab">FAB</Link>
+            <Link href="/fab">FAB</Link>
           </li>
           <li>
             <Link href="/#fabrica_4_0">Fábrica 4.0</Link>

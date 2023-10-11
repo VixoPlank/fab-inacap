@@ -12,7 +12,7 @@ import { IoLocationSharp } from "react-icons/io5";
 
 export default function Footer() {
   return (
-    <footer className="bg-red-600 h-1/2 w-full flex md:flex-row flex-col justify-around py-6 ">
+    <footer className="bg-red-600 h-1/2 w-full flex md:flex-row flex-col justify-around py-6">
       <div className="p-5 ">
         <ul>
           <Image

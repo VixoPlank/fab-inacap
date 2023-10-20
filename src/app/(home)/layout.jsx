@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@components-home/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import Header from "@components-home/Header";
 import Footer from "@components-home/Footer";
 import "../globals.css";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         >
           <Header />
           {children}
+          <Toaster />
           <Footer />
         </ThemeProvider>
       </body>

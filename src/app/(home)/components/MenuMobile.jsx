@@ -2,11 +2,15 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import DarkMode from "./DarkMode";
 
 const MenuMobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen((preState) => !preState);
+  };
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
   return (
     <aside>
@@ -23,7 +27,7 @@ const MenuMobile = () => {
           className={`text-3xl text-white ${!menuOpen && "hidden"}`}
         />
       </button>
-
+      {/* Navegación  */}
       <nav className={`relative z-10 ${menuOpen ? "block" : "hidden"}`}>
         <div
           className="fixed inset-0 bg-gray-800 opacity-25"
@@ -31,9 +35,19 @@ const MenuMobile = () => {
         ></div>
         <nav className="fixed top-0 right-0 bottom-0 flex flex-col w-5/6 max-w-sm py-14 px-6 bg-white dark:bg-black border-r overflow-y-auto">
           <div>
-            <ul className="[&>li]:m-1 [&>li>a]:block [&>li>a]:p-4 [&>li>a]:text-sm [&>li>a]:font-semibold [&>li>a]:text-gray-400 [&>li>a]:rounded">
+            <ul
+              className="[&>li]:m-1 [&>li>a]:block [&>li>a]:p-4 [&>li>a]:text-sm [&>li>a]:font-semibold [&>li>a]:text-gray-400 [&>li>a]:rounded"
+              onClick={closeMenu}
+            >
               <li>
-                <Link className="hover:bg-red-50 hover:text-red-600" href="./">
+                <DarkMode />
+              </li>
+              <li>
+                <Link
+                  className="hover:bg-red-50 hover:text-red-600"
+                  href="./"
+                  // onClick={closeMenu}
+                >
                   Inicio
                 </Link>
               </li>
@@ -41,6 +55,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/fab"
+                  // onClick={closeMenu}
                 >
                   FAB
                 </Link>
@@ -49,6 +64,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/fabricas-4-0"
+                  // onClick={closeMenu}
                 >
                   Fábrica 4.0
                 </Link>
@@ -57,6 +73,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/proyectos"
+                  // onClick={closeMenu}
                 >
                   Proyectos
                 </Link>
@@ -65,6 +82,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/redes"
+                  // onClick={closeMenu}
                 >
                   Redes Sociales
                 </Link>
@@ -73,22 +91,23 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/postulacion"
+                  // onClick={closeMenu}
                 >
                   Postulación
                 </Link>
               </li>
               <li>
-                <Link
+                {/* <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/faq"
                 >
                   Preguntas frecuentes
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
-                  href="/contacto"
+                  href="/#contact"
                 >
                   Contáctanos
                 </Link>

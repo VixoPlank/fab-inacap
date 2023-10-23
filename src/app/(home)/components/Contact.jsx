@@ -60,7 +60,10 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full flex justify-center items-center container">
+    <section
+      className="w-full flex justify-center items-center container"
+      id="contact"
+    >
       <form
         id="nombre"
         className="w-full p-8 my-4 md:px-12 lg:w-5/6 lg:pl-20 lg:pr-40 rounded-2xl border-solid border-2 border-red-500"

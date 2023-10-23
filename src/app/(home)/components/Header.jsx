@@ -34,10 +34,10 @@ const Header = () => {
             <Link href="/fab">FAB</Link>
           </li>
           <li>
-            <Link href="/#fabrica_4_0">Fábrica 4.0</Link>
+            <Link href="/fabrica_4_0">Fábrica 4.0</Link>
           </li>
           <li>
-            <Link href="/#postulacion">Postulación</Link>
+            <Link href="/postulacion">Postulación</Link>
           </li>
           <li>
             <Link href="/portafolio">Proyectos</Link>
@@ -58,6 +58,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      {/* Navbar en Mobile */}
       <MenuMobile />
     </header>
   );

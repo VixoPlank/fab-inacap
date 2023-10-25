@@ -37,7 +37,7 @@ const MenuMobile = () => {
           <div>
             <ul
               className="[&>li]:m-1 [&>li>a]:block [&>li>a]:p-4 [&>li>a]:text-sm [&>li>a]:font-semibold [&>li>a]:text-gray-400 [&>li>a]:rounded"
-              onClick={closeMenu}
+              // onClick={closeMenu}
             >
               <li>
                 <DarkMode />
@@ -46,7 +46,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="./"
-                  // onClick={closeMenu}
+                  onClick={closeMenu}
                 >
                   Inicio
                 </Link>
@@ -55,7 +55,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/fab"
-                  // onClick={closeMenu}
+                  onClick={closeMenu}
                 >
                   FAB
                 </Link>
@@ -64,7 +64,7 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/fabricas-4-0"
-                  // onClick={closeMenu}
+                  onClick={closeMenu}
                 >
                   Fábrica 4.0
                 </Link>
@@ -73,36 +73,28 @@ const MenuMobile = () => {
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/proyectos"
-                  // onClick={closeMenu}
+                  onClick={closeMenu}
                 >
                   Proyectos
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/redes"
-                  // onClick={closeMenu}
+                  onClick={closeMenu}
                 >
                   Redes Sociales
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   className="hover:bg-red-50 hover:text-red-600"
                   href="/postulacion"
-                  // onClick={closeMenu}
+                  onClick={closeMenu}
                 >
                   Postulación
                 </Link>
-              </li>
-              <li>
-                {/* <Link
-                  className="hover:bg-red-50 hover:text-red-600"
-                  href="/faq"
-                >
-                  Preguntas frecuentes
-                </Link> */}
               </li>
               <li>
                 <Link

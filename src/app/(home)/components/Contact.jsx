@@ -2,6 +2,7 @@
 
 import { useToast } from "@/components/ui/use-toast";
 import useForm from "@/hooks/useForm";
+import { emailRegex } from "@/utils/regex";
 
 const Contact = () => {
   const { formData, handleChange, reset, validateEmptyFields } = useForm({
@@ -25,6 +26,16 @@ const Contact = () => {
         description: `Los siguientes campos están vacíos: ${emptyFields.join(
           ", "
         )}.`,
+      });
+      return;
+    }
+
+    //TOAST: si el Correo le falta "@" tira error
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        variant: "destructive",
+        title: "Error de Campos.",
+        description: "Debe ingresar un correo válido!",
       });
       return;
     }

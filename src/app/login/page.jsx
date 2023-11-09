@@ -10,7 +10,7 @@ import useForm from "@/hooks/useForm";
 import DarkModeToggle from "@components-home/DarkMode";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -200,4 +200,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

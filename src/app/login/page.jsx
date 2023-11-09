@@ -45,6 +45,8 @@ const page = () => {
       });
       return;
     }
+    // creacion funcion si la contraseña es incorrecta
+    // creacion funcion si el correo no existe o es incorrecto 
   };
 
   return (

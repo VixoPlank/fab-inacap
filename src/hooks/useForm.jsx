@@ -5,6 +5,9 @@ const useForm = (initialState, localStorageKey) => {
 
   // Cargar los datos del localStorage al inicializar
   useEffect(() => {
+    if (!localStorageKey) {
+      return;
+    }
     const storedData = localStorage.getItem(localStorageKey);
     if (storedData) {
       try {

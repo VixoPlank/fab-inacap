@@ -5,11 +5,14 @@ import useForm from "@/hooks/useForm";
 import { emailRegex } from "@/utils/regex";
 
 const Contact = () => {
-  const { formData, handleChange, reset, validateEmptyFields } = useForm({
-    nombre: "",
-    email: "",
-    mensaje: "",
-  });
+  const { formData, handleChange, reset, validateEmptyFields } = useForm(
+    {
+      nombre: "",
+      email: "",
+      mensaje: "",
+    },
+    "contacto"
+  );
 
   const { toast } = useToast();
 

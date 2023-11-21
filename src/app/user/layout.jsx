@@ -12,6 +12,9 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { BsDoorOpen, BsCalendarCheck } from "react-icons/bs";
+import {useSession , signOut} from 'next-auth/react'
+import RutasProtegidas from "@/components/dashboards/RutasProtegidas";
+
 
 const navigation = [
   { name: "Home", href: "/user/dashboard", icon: AiOutlineHome, current: true },
@@ -40,7 +43,7 @@ const navigation = [
     current: false,
   },
   // { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-  { name: "Cerrar Sesión", href: "/", icon: BsDoorOpen, current: false },
+  
 ];
 
 function classNames(...classes) {
@@ -51,6 +54,7 @@ export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
+    <RutasProtegidas allowedRoles={[undefined,"user"]}>
     <section className="">
       <>
         <div>
@@ -140,6 +144,7 @@ export default function DashboardLayout({ children }) {
                                     />
                                     {item.name}
                                   </Link>
+                                  
                                 </li>
                               ))}
                             </ul>
@@ -200,6 +205,7 @@ export default function DashboardLayout({ children }) {
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
+                      <button onClick={() => {signOut();}}>  <AiOutlineClose/> <span> Cerrar session</span></button>
                       <span className="sr-only">Your profile</span>
                       <span aria-hidden="true">Tom Cook</span>
                     </a>
@@ -240,5 +246,6 @@ export default function DashboardLayout({ children }) {
         </div>
       </>
     </section>
+    </RutasProtegidas>
   );
 }

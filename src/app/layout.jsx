@@ -2,6 +2,7 @@ import { ThemeProvider } from "@components-home/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import { Oswald } from "next/font/google";
+import Providers from "./Providers";
 
 const inter = Oswald({
   weight: ["400"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="es">
       <body className={inter.className}>
+        <Providers>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -27,6 +29,7 @@ export default function RootLayout({ children }) {
           {children}
           <Toaster />
         </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

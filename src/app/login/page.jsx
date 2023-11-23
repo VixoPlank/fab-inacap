@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
 import { BsGoogle, BsFillEyeSlashFill, BsMicrosoft } from "react-icons/bs";
 import { IoEyeSharp } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa";
@@ -9,8 +11,42 @@ import { emailRegex } from "@/utils/regex";
 import useForm from "@/hooks/useForm";
 import DarkModeToggle from "@components-home/DarkMode";
 import Link from "next/link";
+import GoogleBtn from './GoogleBtn'
 
 const Page = () => {
+
+  //Validacion de los datos ingresados del login
+  const [error, setError] = useState();
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === 'authenticated' && session) {
+      redirectBasedOnRole(session);
+    }
+  }, [status, session]);
+
+  const redirectBasedOnRole = (sessionData) => {
+    if (sessionData?.user?.role === 'admin') {
+      router.push("/admin/dashboard");
+    } else if (sessionData?.user?.role === 'user') {
+      router.push("/user/dashboard");
+    }
+  };
+
+  const handleSignIn = async (formData) => {
+    const res = await signIn("credentials", {
+      email: formData.get("email"),
+      password: formData.get("password"),
+      redirect: false,
+    });
+
+    if (res?.error) return setError(res.error);
+  };
+
+  
+
+
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -21,8 +57,15 @@ const Page = () => {
   });
 
   const { toast } = useToast();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //Obtiene datos a travez de handleSignIn
+    const formData = new FormData(e.currentTarget);
+    await handleSignIn(formData);
+
+    // Redirigir basado en la sesión actual
+    redirectBasedOnRole(session);
 
     // Válidación del Login
     const emptyFields = validateEmptyFields();
@@ -124,27 +167,14 @@ const Page = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 dark:bg-slate-50"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-3 block text-sm leading-6 text-gray-900 "
-                >
-                  Recordarme
-                </label>
-              </div>
+           
 
               <div className="text-sm leading-6">
                 <a
-                  href="#"
+                  href="/register"
                   className="font-semibold text-indigo-600 hover:text-indigo-500"
                 >
-                  Se te ha olvidado la contraseña?
+                  Registrate
                 </a>
               </div>
             </div>
@@ -175,13 +205,8 @@ const Page = () => {
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-4">
-              <a
-                href="#"
-                className="flex w-full items-center justify-center gap-3 rounded-md bg-red-600 hover:bg-red-700 px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
-              >
-                <BsGoogle />
-                <span className="text-sm font-semibold leading-6">Google</span>
-              </a>
+
+              <GoogleBtn />
 
               <a
                 href="#"

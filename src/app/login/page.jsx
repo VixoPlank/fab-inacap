@@ -167,35 +167,14 @@ const Page = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 dark:bg-slate-50"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-3 block text-sm leading-6 text-gray-900 "
-                >
-                  Recordarme
-                </label>
-              </div>
+           
 
-              <div className="text-sm leading-6">
-                <a
-                  href="#"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500"
-                >
-                  Se te ha olvidado la contraseña?
-                </a>
-              </div>
               <div className="text-sm leading-6">
                 <a
                   href="/register"
                   className="font-semibold text-indigo-600 hover:text-indigo-500"
                 >
-                  No tienes cuenta,Registrate acá?
+                  Registrate
                 </a>
               </div>
             </div>

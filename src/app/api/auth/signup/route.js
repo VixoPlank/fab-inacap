@@ -4,8 +4,8 @@ import { connectDB } from "@/libs/mongodb";
 import bcrypt from "bcryptjs";
 
 export async function POST(request) {
-  const { fullname, email, password } = await request.json();
-  console.log(fullname, email, password);
+  const { name, lastname, email, password } = await request.json();
+  console.log(name, lastname, email, password);
 
   if (!password || password.length < 6)
     return NextResponse.json(
@@ -35,8 +35,10 @@ export async function POST(request) {
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const user = new User({
+      name,
+      lastname,
       email,
-      fullname,
+      name,
       password: hashedPassword,
     });
     const savedUser = await user.save();
@@ -44,8 +46,10 @@ export async function POST(request) {
 
     return NextResponse.json({
       _id:savedUser._id,
+      name:savedUser.name,
+      lastname:savedUser.lastname,
       email:savedUser.email,
-      fullname:savedUser.fullname,
+      
     });
   } catch (error) {
     console.log(error);

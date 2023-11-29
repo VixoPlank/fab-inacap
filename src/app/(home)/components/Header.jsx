@@ -34,7 +34,7 @@ const Header = () => {
             <Link href="/fab">FAB</Link>
           </li>
           <li>
-            <Link href="/fabrica_4_0">Fábrica 4.0</Link>
+            <Link href="/fabrica-4-0">Fábrica 4.0</Link>
           </li>
           <li>
             <Link href="/postulacion">Postulación</Link>

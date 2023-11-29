@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import HeaderVideo from "@components-home/HeaderVideo";
 import Contact from "@components-home/Contact";
@@ -16,17 +16,15 @@ export default function Home() {
   useEffect(() => {
     if (session) {
       const { role } = session.user || {}; // Obtenemos el rol del usuario
-      if (role === 'admin') {
+      if (role === "admin") {
         router.replace("/admin/dashboard"); // Redirigir a la página de inicio de sesión para admin
-      } else if (role === 'user' || role === undefined) {
+      } else if (role === "user" || role === undefined) {
         router.replace("/user/dashboard"); // Redirigir a la página de inicio de sesión para user o undefined
       }
     }
   }, [session, router]);
   return (
-    
-    <main>  
-      
+    <main>
       <HeaderVideo />
       <Fab />
       <Fabrica_4_0 />

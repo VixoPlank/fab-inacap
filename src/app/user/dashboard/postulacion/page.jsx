@@ -1,67 +1,96 @@
 "use client";
 
+import axios from "axios";
+
+import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import useForm from "@/hooks/useForm";
 import { emailRegex } from "@/utils/regex";
 
 const Page = () => {
-  const { formData, handleChange, reset, validateEmptyFields } = useForm(
-    {
-      // Aqui los campos del formulario
-      dni: "",
-      personalidad: "",
-      razon_social: "",
-      nombre: "",
-      apellido: "",
-      date: "",
-      ocupacion: "",
-      nivel_ocupacional: "",
-      institucion: "",
-      // Información del proyecto
-      nombre_proyecto: "",
-      objetivo_proyecto: "",
-      problematica: "",
-      descripcion: "",
-      resultados: "",
-      fab: "",
-      comentarios: "",
-    },
-    "postulacion"
-  );
-
-  const { toast } = useToast();
-
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación del Formulario
-    const emptyFields = validateEmptyFields();
-    if (emptyFields.length > 0) {
-      toast({
-        variant: "destructive",
-        title: "Error de Campos.",
-        description: `Los siguientes campos están vacíos: ${emptyFields.join(
-          ", "
-        )}.`,
-      });
-      return;
-    }
+    const formData = new FormData(e.currentTarget);
+    
 
-    //TOAST: si el Correo le falta "@" tira error
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        variant: "destructive",
-        title: "Error de Campos.",
-        description: "Debe ingresar un correo válido!",
-      });
-      return;
-    }
+      await axios.post("/api/postulacion", {
+        dni: formData.get("dni"),
+        personalidad: formData.get("personalidad"),
+        razon_socia: formData.get("razon_socia"),
+        nombre: formData.get("nombre"),
+        apellido: formData.get("apellido"),
+        date: formData.get("date"),
+        ocupacion: formData.get("ocupacion"),
+        nivel_ocupacional: formData.get("nivel_ocupacional"),
+        institucion: formData.get("institucion"),
+        nombre_proyecto: formData.get("nombre_proyecto"),
+        objetivo_proyecto: formData.get("objetivo_proyecto"),
+        problematica: formData.get("problematica"),
+        descripcion: formData.get("descripcion"),
+        resultados: formData.get("resultados"),
+        fab: formData.get("fab"),
+        comentario: formData.get("comentario"),
+      }
+      );}
+
+    
+  // const { reset} = useForm(
+  //   {
+  //     //Aqui los campos del formulario
+  //     dni: "",
+  //     personalidad: "",
+  //     razon_social: "",
+  //     nombre: "",
+  //     apellido: "",
+  //     date: "",
+  //     ocupacion: "",
+  //     nivel_ocupacional: "",
+  //     institucion: "",
+  //     // Información del proyecto
+  //     nombre_proyecto: "",
+  //     objetivo_proyecto: "",
+  //     problematica: "",
+  //     descripcion: "",
+  //     resultados: "",
+  //     fab: "",
+  //     comentarios: "",
+  //   },
+  //   "postulacion"
+  // );
+
+  // const { toast } = useToast();
+
+  
+
+  //   // Validación del Formulario
+  //   const emptyFields = validateEmptyFields();
+  //   if (emptyFields.length > 0) {
+  //     toast({
+  //       variant: "destructive",
+  //       title: "Error de Campos.",
+  //       description: `Los siguientes campos están vacíos: ${emptyFields.join(
+  //         ", "
+  //       )}.`,
+  //     });
+  //     return;
+  //   }
+
+  //   //TOAST: si el Correo le falta "@" tira error
+  //   if (!emailRegex.test(formData.email)) {
+  //     toast({
+  //       variant: "destructive",
+  //       title: "Error de Campos.",
+  //       description: "Debe ingresar un correo válido!",
+  //     });
+  //     return;
+  //   }
 
     // Crear funcion de si existe cuenta
 
     // Reiniciar formulario
-    reset();
-  };
+    // reset();
+  
 
   return (
     <div>
@@ -79,10 +108,10 @@ const Page = () => {
               id="dni"
               name="dni"
               type="text"
-              value={formData.dni}
+              // value={formData.dni}
               placeholder="Rut de personalidad jurídica o natural"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -91,10 +120,10 @@ const Page = () => {
               id="personalidad"
               name="personalidad"
               type="text"
-              value={formData.personaliadad}
+              // value={formData.personaliadad}
               placeholder=""
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -103,10 +132,10 @@ const Page = () => {
               id="razon_social"
               name="razon_social"
               type="text"
-              value={formData.razon_social}
+              // value={formData.razon_social}
               placeholder="Nombre de la empresa"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -115,10 +144,10 @@ const Page = () => {
               id="nombre"
               name="nombre"
               type="text"
-              value={formData.nombre}
+              // value={formData.nombre}
               placeholder="Ingrese su nombre"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -127,10 +156,10 @@ const Page = () => {
               id="apellido"
               name="apellido"
               type="text"
-              value={formData.apellido}
+              // value={formData.apellido}
               placeholder="Ingrese su apellido"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -139,10 +168,10 @@ const Page = () => {
               id="date"
               name="date"
               type="text"
-              value={formData.date}
+              // value={formData.date}
               placeholder="Ingrese su apellido"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -151,10 +180,10 @@ const Page = () => {
               id="ocupacion"
               name="ocupacion"
               type="text"
-              value={formData.ocupacion}
+              // value={formData.ocupacion}
               placeholder="Ingrese su Ocupación"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -163,10 +192,10 @@ const Page = () => {
               id="nivel_educacional"
               name="nivel_educacional"
               type="text"
-              value={formData.ocupacion}
+              // value={formData.ocupacion}
               placeholder="Ingrese su Ocupación"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -177,10 +206,10 @@ const Page = () => {
               id="institucion"
               name="institucion"
               type="text"
-              value={formData.ocupacion}
+              // value={formData.ocupacion}
               placeholder="Ingrese su Institución de nivel superior"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
         </section>
@@ -195,10 +224,10 @@ const Page = () => {
               id="nombre_proyecto"
               name="nombre_proyecto"
               type="text"
-              value={formData.nombre_proyecto}
+              // value={formData.nombre_proyecto}
               placeholder="Ingrese el nombre del proyecto"
               className="w-96 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -208,10 +237,10 @@ const Page = () => {
             <textarea
               id="objetivo_proyecto"
               name="objetivo_proyecto"
-              value={formData.objetivo_proyecto}
+              // value={formData.objetivo_proyecto}
               placeholder="Ingrese el nombre del proyecto"
               className="w-full h-auto bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -221,10 +250,10 @@ const Page = () => {
             <textarea
               id="problematica"
               name="problematica"
-              value={formData.problematica}
+              // value={formData.problematica}
               placeholder="Ingrese la problematica a tratar"
               className="w-full h-auto bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -234,10 +263,10 @@ const Page = () => {
             <textarea
               id="descripcion"
               name="descripcion"
-              value={formData.descripcion}
+              // value={formData.descripcion}
               placeholder="Ingrese la descripción de su proyecto"
               className="w-full h-auto bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -247,10 +276,10 @@ const Page = () => {
             <textarea
               id="resultados"
               name="resultados"
-              value={formData.resultados}
+              // value={formData.resultados}
               placeholder="Ingrese los resultados esperados"
               className="w-full h-auto bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -260,10 +289,10 @@ const Page = () => {
             <textarea
               id="fab"
               name="fab"
-              value={formData.fab}
+              // value={formData.fab}
               placeholder="Escriba su respuesta"
               className="w-full h-auto bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
           <div>
@@ -273,15 +302,15 @@ const Page = () => {
             <textarea
               id="comentarios"
               name="comentarios"
-              value={formData.comentarios}
+              // value={formData.comentarios}
               placeholder="Escriba su respuesta"
               className="w-full h-auto bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              onChange={handleChange}
+              // onChange={handleChange}
             />
           </div>
         </section>
         <button
-          onClick={handleSubmit}
+          // onClick={handleSubmit}
           className="uppercase text-sm font-bold tracking-wide bg-red-600 hover:bg-red-700  text-gray-100 p-3 rounded-lg w-auto mt-5 focus:outline-none focus:shadow-outline"
         >
           Enviar Postulación
@@ -289,6 +318,6 @@ const Page = () => {
       </form>
     </div>
   );
-};
+;}
 
 export default Page;

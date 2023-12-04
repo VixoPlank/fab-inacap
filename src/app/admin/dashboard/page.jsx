@@ -1,24 +1,27 @@
-'use client'
+"use client";
 
-import { signOut} from 'next-auth/react'
+import React from "react";
 
-function DashboardPage() {
-
-   
-
+const page = () => {
   return (
+    <section>
+      <header className="text-center ">
+        <h1 className="text-3xl uppercase">Hola Bienvenido</h1>
+        <p>Accesos rápido</p>
+      </header>
+      <section className="grid grid-cols-1 md:grid-cols-3">
+        <article className="">
+          <h1>Hola</h1>
+        </article>
+        <article className="">
+          <h1>Hola</h1>
+        </article>
+        <article className="">
+          <h1>Hola</h1>
+        </article>
+      </section>
+    </section>
+  );
+};
 
-    
-    <div>
-      <h1>Admin</h1>
-
-      <button onClick={() => {signOut();}}>Logout</button>
-
-
-    </div>
-   
-   
-  )
-}
-
-export default DashboardPage
+export default page;

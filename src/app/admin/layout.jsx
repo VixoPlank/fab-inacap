@@ -34,7 +34,7 @@ const navigation = [
   },
   {
     name: "Buscar Postulante",
-    href: "/user/dashboard/fechas-postulacion",
+    href: "/admin/dashboard/buscar-postulantes",
     icon: RiUserSearchLine,
     current: false,
   },
@@ -52,13 +52,13 @@ const navigation = [
   },
   {
     name: "Abrir Postulaciones",
-    href: "#",
+    href: "/admin/dashboard/abrir-postulaciones",
     icon: MdDateRange,
     current: false,
   },
   {
     name: "Ver Estadísticas",
-    href: "/admin/dashboard/ver-estadisticas",
+    href: "/admin/dashboard/estadisticas",
     icon: MdOutlineQueryStats,
     current: false,
   },

@@ -6,91 +6,25 @@ const statuses = {
 const activityItems = [
   {
     user: {
-      name: "Michael Foster",
+      name: "Camilo Ccicheli",
       imageUrl:
         "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
-    commit: "2d89f0c8",
+    commit: "camilo.ccicheli@inacapmail.cl",
     status: "Rechazada",
-    date: "45 minutes ago",
+    date: "hace 5 horas",
     dateTime: "2023-01-23T11:00",
   },
   {
     user: {
-      name: "Lindsay Walton",
+      name: "Mario Acuña",
       imageUrl:
         "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
-    commit: "249df660",
+    commit: "mario.acuna01@inacapmail.cl",
     status: "Rechazada",
-    date: "3 hours ago",
+    date: "hace 3 horas",
     dateTime: "2023-01-23T09:00",
-  },
-  {
-    user: {
-      name: "Courtney Henry",
-      imageUrl:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    commit: "11464223",
-    status: "Rechazada",
-    date: "12 hours ago",
-    dateTime: "2023-01-23T00:00",
-  },
-  {
-    user: {
-      name: "Courtney Henry",
-      imageUrl:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    commit: "dad28e95",
-    status: "Rechazada",
-    date: "2 days ago",
-    dateTime: "2023-01-21T13:00",
-  },
-  {
-    user: {
-      name: "Michael Foster",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    commit: "624bc94c",
-    status: "Rechazada",
-    date: "5 days ago",
-    dateTime: "2023-01-18T12:34",
-  },
-  {
-    user: {
-      name: "Courtney Henry",
-      imageUrl:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    commit: "e111f80e",
-    status: "Rechazada",
-    date: "1 week ago",
-    dateTime: "2023-01-16T15:54",
-  },
-  {
-    user: {
-      name: "Michael Foster",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    commit: "5e136005",
-    status: "Rechazada",
-    date: "1 week ago",
-    dateTime: "2023-01-16T11:31",
-  },
-  {
-    user: {
-      name: "Whitney Francis",
-      imageUrl:
-        "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    commit: "5c1fd07f",
-    status: "Rechazada",
-    date: "2 weeks ago",
-    dateTime: "2023-01-09T08:45",
   },
 ];
 
@@ -150,11 +84,6 @@ const page = () => {
             <tr key={item.commit}>
               <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">
-                  <img
-                    src={item.user.imageUrl}
-                    alt=""
-                    className="h-8 w-8 rounded-full bg-gray-800"
-                  />
                   <div className="truncate text-sm font-medium leading-6 text-white">
                     {item.user.name}
                   </div>

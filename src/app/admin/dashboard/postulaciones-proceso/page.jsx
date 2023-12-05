@@ -1,19 +1,19 @@
 "use client";
 
+import Link from "next/link";
+
 const statuses = {
   Pendiente: "text-yellow-400 bg-yellow-400/10",
 };
 const activityItems = [
   {
     user: {
-      name: "Michael Foster",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      name: "Mario Acuña",
     },
-    commit: "2d89f0c8",
+    commit: "mario.acuna01@inacapmail.cl",
 
     status: "Pendiente",
-    date: "45 minutes ago",
+    date: "hace 1 dia",
     dateTime: "2023-01-23T11:00",
   },
 ];
@@ -60,7 +60,9 @@ const page = () => {
             <th
               scope="col"
               className="hidden py-2 pl-0 pr-8 font-semibold md:table-cell lg:pr-20"
-            ></th>
+            >
+              Detalle
+            </th>
             <th
               scope="col"
               className="hidden py-2 pl-0 pr-4 text-right font-semibold sm:table-cell sm:pr-6 lg:pr-8"
@@ -74,11 +76,6 @@ const page = () => {
             <tr key={item.commit}>
               <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">
-                  <img
-                    src={item.user.imageUrl}
-                    alt=""
-                    className="h-8 w-8 rounded-full bg-gray-800"
-                  />
                   <div className="truncate text-sm font-medium leading-6 text-white">
                     {item.user.name}
                   </div>
@@ -112,9 +109,16 @@ const page = () => {
                   </div>
                 </div>
               </td>
-              <td className="hidden py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20">
+              {/* Crear funcion para mostrar el detalle */}
+
+              <Link href="detalle-proyecto">
+                <td className="text-sm hover:underline hover:text-red-600 py-4">
+                  Ver detalle
+                </td>
+              </Link>
+              {/* <td className="hidden py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20">
                 {item.duration}
-              </td>
+              </td> */}
               <td className="hidden py-4 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 sm:table-cell sm:pr-6 lg:pr-8">
                 <time dateTime={item.dateTime}>{item.date}</time>
               </td>

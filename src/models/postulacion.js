@@ -76,7 +76,7 @@ const PostulacionSchema = new Schema({
   estado: {
     type: String,
     
-    default:"enviado"
+    default:"En Revisión"
   },
   user: {
     type: Schema.Types.ObjectId,

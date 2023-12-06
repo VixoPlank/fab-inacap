@@ -1,37 +1,44 @@
 "use client";
 
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import useForm from "@/hooks/useForm";
 import { emailRegex } from "@/utils/regex";
 
 const Page = () => {
+  const router = useRouter()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-
+    
+    
     await axios.post("/api/postulacion", {
-      dni: formData.get("dni"),
-      personalidad: formData.get("personalidad"),
-      razon_socia: formData.get("razon_socia"),
-      nombre: formData.get("nombre"),
-      apellido: formData.get("apellido"),
-      date: formData.get("date"),
-      ocupacion: formData.get("ocupacion"),
-      nivel_ocupacional: formData.get("nivel_ocupacional"),
-      institucion: formData.get("institucion"),
-      nombre_proyecto: formData.get("nombre_proyecto"),
-      objetivo_proyecto: formData.get("objetivo_proyecto"),
-      problematica: formData.get("problematica"),
-      descripcion: formData.get("descripcion"),
-      resultados: formData.get("resultados"),
-      fab: formData.get("fab"),
-      comentario: formData.get("comentario"),
-    });
-  };
+        dni: formData.get("dni"),
+        personalidad: formData.get("personalidad"),
+        razon_socia: formData.get("razon_socia"),
+        nombre: formData.get("nombre"),
+        apellido: formData.get("apellido"),
+        date: formData.get("date"),
+        ocupacion: formData.get("ocupacion"),
+        nivel_ocupacional: formData.get("nivel_ocupacional"),
+        institucion: formData.get("institucion"),
+        nombre_proyecto: formData.get("nombre_proyecto"),
+        objetivo_proyecto: formData.get("objetivo_proyecto"),
+        problematica: formData.get("problematica"),
+        descripcion: formData.get("descripcion"),
+        resultados: formData.get("resultados"),
+        fab: formData.get("fab"),
+        comentario: formData.get("comentario"),
+      }
+      );
+      
+      router.push('/user/dashboard/estado-postulacion')
+    
+    
+    }
 
   // const { reset} = useForm(
   //   {

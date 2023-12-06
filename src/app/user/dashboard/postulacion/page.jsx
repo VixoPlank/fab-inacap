@@ -12,29 +12,27 @@ const Page = () => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    
 
-      await axios.post("/api/postulacion", {
-        dni: formData.get("dni"),
-        personalidad: formData.get("personalidad"),
-        razon_socia: formData.get("razon_socia"),
-        nombre: formData.get("nombre"),
-        apellido: formData.get("apellido"),
-        date: formData.get("date"),
-        ocupacion: formData.get("ocupacion"),
-        nivel_ocupacional: formData.get("nivel_ocupacional"),
-        institucion: formData.get("institucion"),
-        nombre_proyecto: formData.get("nombre_proyecto"),
-        objetivo_proyecto: formData.get("objetivo_proyecto"),
-        problematica: formData.get("problematica"),
-        descripcion: formData.get("descripcion"),
-        resultados: formData.get("resultados"),
-        fab: formData.get("fab"),
-        comentario: formData.get("comentario"),
-      }
-      );}
+    await axios.post("/api/postulacion", {
+      dni: formData.get("dni"),
+      personalidad: formData.get("personalidad"),
+      razon_socia: formData.get("razon_socia"),
+      nombre: formData.get("nombre"),
+      apellido: formData.get("apellido"),
+      date: formData.get("date"),
+      ocupacion: formData.get("ocupacion"),
+      nivel_ocupacional: formData.get("nivel_ocupacional"),
+      institucion: formData.get("institucion"),
+      nombre_proyecto: formData.get("nombre_proyecto"),
+      objetivo_proyecto: formData.get("objetivo_proyecto"),
+      problematica: formData.get("problematica"),
+      descripcion: formData.get("descripcion"),
+      resultados: formData.get("resultados"),
+      fab: formData.get("fab"),
+      comentario: formData.get("comentario"),
+    });
+  };
 
-    
   // const { reset} = useForm(
   //   {
   //     //Aqui los campos del formulario
@@ -61,8 +59,6 @@ const Page = () => {
 
   // const { toast } = useToast();
 
-  
-
   //   // Validación del Formulario
   //   const emptyFields = validateEmptyFields();
   //   if (emptyFields.length > 0) {
@@ -86,11 +82,10 @@ const Page = () => {
   //     return;
   //   }
 
-    // Crear funcion de si existe cuenta
+  // Crear funcion de si existe cuenta
 
-    // Reiniciar formulario
-    // reset();
-  
+  // Reiniciar formulario
+  // reset();
 
   return (
     <div>
@@ -101,7 +96,8 @@ const Page = () => {
         className="w-full p-8 my-4 justify-between rounded-2xl border-solid border-2 border-red-500"
         onSubmit={handleSubmit}
       >
-        <section className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-3">
+        <h1 className="text-2xl text-center ">Información del Postulante</h1>
+        <section className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-3 mt-2">
           <div>
             <label htmlFor="dni">ID Usuario</label>
             <input
@@ -121,7 +117,7 @@ const Page = () => {
               name="personalidad"
               type="text"
               // value={formData.personaliadad}
-              placeholder=""
+              placeholder="Tipo de empresa"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               // onChange={handleChange}
             />
@@ -318,6 +314,6 @@ const Page = () => {
       </form>
     </div>
   );
-;}
+};
 
 export default Page;

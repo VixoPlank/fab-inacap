@@ -1,63 +1,16 @@
-const posts = [
-  {
-    id: 1,
-    title: "",
-    href: "#",
-    description:
-      "Un programa educativo comunitario para promover la sostenibilidad en vecindarios urbanos. Este proyecto incluiría talleres interactivos sobre reciclaje, compostaje y prácticas eco-amigables para reducir la huella de carbono. Además, se organizarían eventos de limpieza de espacios públicos y se proporcionaría asesoramiento para implementar cambios sostenibles en los hogares y negocios locales.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Marzo 20, 2020",
-    datetime: "2020-03-16",
-    category: { title: "En Revisión", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    id: 2,
-    title: "",
-    href: "#",
-    description:
-      "Un programa educativo comunitario para promover la sostenibilidad en vecindarios urbanos. Este proyecto incluiría talleres interactivos sobre reciclaje, compostaje y prácticas eco-amigables para reducir la huella de carbono. Además, se organizarían eventos de limpieza de espacios públicos y se proporcionaría asesoramiento para implementar cambios sostenibles en los hogares y negocios locales.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Enero 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Aprobado", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    id: 3,
-    title: "",
-    href: "#",
-    description:
-      "Un programa educativo comunitario para promover la sostenibilidad en vecindarios urbanos. Este proyecto incluiría talleres interactivos sobre reciclaje, compostaje y prácticas eco-amigables para reducir la huella de carbono. Además, se organizarían eventos de limpieza de espacios públicos y se proporcionaría asesoramiento para implementar cambios sostenibles en los hogares y negocios locales.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Rechazado", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-];
-const page = () => {
+import { connectDB } from '@/libs/mongodb'
+import Postulacion from "@/models/postulacion";
+
+async function loadPostulacion(){
+  connectDB()
+  const post = await Postulacion.find()
+  return post
+}
+
+
+
+async function Postulaciones () {
+  const post = await loadPostulacion()
   return (
     <section className="bg-gray-900/80 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -69,60 +22,47 @@ const page = () => {
             Aqui se mostrará todas tus postulaciones
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-            {posts.map((post) => (
+            {post.map((post) => (
               <article
                 key={post.id}
                 className="relative isolate flex flex-col gap-8 lg:flex-row"
               >
-                {/* <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                  <img
-                    src={post.imageUrl}
-                    alt=""
-                    className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-                  />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                </div> */}
+                
                 <div>
                   <div className="flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.datetime} className="text-gray-500">
+                    <time dateTime={post.timestamps} className="text-gray-100">
                       {post.date}
                     </time>
-                    <a
-                      href={post.category.href}
-                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                    <span
+                      
+                      className={`relative z-10 rounded-full px-3 py-1.5 font-medium hover:bg-gray-100 ${
+                        post.estado === "Aprobado"
+                          ? "bg-green-500 text-white"
+                          : post.estado === "Rechazado"
+                          ? "bg-red-500 text-white"
+                          : post.estado === "En Revisión"
+                          ? "bg-yellow-500 text-black"
+                          : "text-white"
+                      }`}
                     >
-                      {post.category.title}
-                    </a>
+                      {post.estado}
+                    </span>
+                    <a href="#" className="relative z-10 rounded-full px-3 py-1.5 font-extrabold text-black bg-gray-300 hover:bg-gray-100">Ver Proyecto</a>
                   </div>
                   <div className="group relative max-w-xl">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                      <a href={post.href}>
-                        <span className="absolute inset-0" />
-                        {post.title}
+                    <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
+                      <a>
+                        <span className="absolute inset-0 " />
+                        {post.nombre_proyecto}
                       </a>
                     </h3>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">
-                      {post.description}
+                    <p className="mt-5 text-lg leading-6 text-white">
+                      {post.descripcion}
                     </p>
                   </div>
-                  <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-                    <div className="relative flex items-center gap-x-4">
-                      <img
-                        src={post.author.imageUrl}
-                        alt=""
-                        className="h-10 w-10 rounded-full bg-gray-50"
-                      />
-                      <div className="text-sm leading-6">
-                        <p className="font-semibold text-gray-900">
-                          <a href={post.author.href}>
-                            <span className="absolute inset-0" />
-                            {post.author.name}
-                          </a>
-                        </p>
-                        <p className="text-gray-600">{post.author.role}</p>
-                      </div>
-                    </div>
-                  </div>
+                  
+  
+                  <div className=" border-white border-b-2 "></div>
                 </div>
               </article>
             ))}
@@ -130,7 +70,8 @@ const page = () => {
         </div>
       </div>
     </section>
+  
   );
 };
 
-export default page;
+export default Postulaciones;

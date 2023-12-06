@@ -12,7 +12,17 @@ const activityItems = [
     },
     commit: "mario.acuna01@inacapmail.cl",
 
-    status: "Pendiente",
+    status: "Pendiente eva1",
+    date: "hace 1 dia",
+    dateTime: "2023-01-23T11:00",
+  },
+  {
+    user: {
+      name: "Ignacio Vásquez",
+    },
+    commit: "ignacio.vasquez06@inacapmail.cl",
+
+    status: "Pendiente eva2",
     date: "hace 1 dia",
     dateTime: "2023-01-23T11:00",
   },

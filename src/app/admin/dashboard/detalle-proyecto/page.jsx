@@ -13,7 +13,7 @@ const page = () => {
               ID del Postulante
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">Margot Foster</span>
+              <span className="flex-grow">11.111.111-1</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -21,7 +21,7 @@ const page = () => {
               Personalidad
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">Backend Developer</span>
+              <span className="flex-grow">pyme</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -29,13 +29,13 @@ const page = () => {
               Razón Social
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">margotfoster@example.com</span>
+              <span className="flex-grow">juan perez S.A</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-white">Nombre</dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">Juan</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -43,7 +43,7 @@ const page = () => {
               Apellido
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">perez</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -51,7 +51,7 @@ const page = () => {
               Fecha de postulación
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">05-11-1990</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -59,15 +59,15 @@ const page = () => {
               Ocupación
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">emprendedor</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-white">
-              Nivel ocupacional
+              Nivel Educacional
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">Educación superior completa</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -75,7 +75,7 @@ const page = () => {
               Institución
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">INACAP</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -83,7 +83,7 @@ const page = () => {
               Nombre del proyecto
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
+              <span className="flex-grow">Cultivo lechuga hidropinica</span>
             </dd>
           </div>
 
@@ -93,11 +93,7 @@ const page = () => {
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
+                cultivo lechuga hidropinica en la region de ñuble
               </span>
             </dd>
           </div>
@@ -108,11 +104,7 @@ const page = () => {
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
+                crecimiento de lechuga en metodo hidroponico
               </span>
             </dd>
           </div>
@@ -122,11 +114,8 @@ const page = () => {
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
+                se plantea dar vida y crecimiento a lechugas en un ambiente
+                controlado especificamente hidroponica
               </span>
             </dd>
           </div>
@@ -136,11 +125,7 @@ const page = () => {
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
+                se espera que las lechugas nazcan y crezcan de manera acelerada
               </span>
             </dd>
           </div>
@@ -149,13 +134,7 @@ const page = () => {
               Como llegaron a FAB-LAB
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
-              </span>
+              <span className="flex-grow">por un amigo</span>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -163,13 +142,7 @@ const page = () => {
               Comentarios
             </dt>
             <dd className="mt-1 flex text-sm leading-6 text-white sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
-              </span>
+              <span className="flex-grow">nada que comentar</span>
             </dd>
           </div>
           <div className="justify-between flex py-5">

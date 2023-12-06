@@ -24,15 +24,15 @@ const days = [
     events: [
       {
         id: 1,
-        name: "Design review",
-        time: "10AM",
+        name: "",
+        time: "",
         datetime: "2022-01-03T10:00",
         href: "#",
       },
       {
         id: 2,
-        name: "Sales meeting",
-        time: "2PM",
+        name: "",
+        time: "",
         datetime: "2022-01-03T14:00",
         href: "#",
       },
@@ -47,8 +47,8 @@ const days = [
     events: [
       {
         id: 3,
-        name: "Date night",
-        time: "6PM",
+        name: "",
+        time: "",
         datetime: "2022-01-08T18:00",
         href: "#",
       },
@@ -65,7 +65,7 @@ const days = [
     events: [
       {
         id: 6,
-        name: "Sam's birthday party",
+        name: "Inicio de postulación",
         time: "2PM",
         datetime: "2022-01-25T14:00",
         href: "#",
@@ -84,19 +84,20 @@ const days = [
   {
     date: "2022-01-22",
     isCurrentMonth: true,
+    isToday: true,
     isSelected: true,
     events: [
       {
         id: 4,
-        name: "Maple syrup museum",
+        name: "Cierre de postulación",
         time: "3PM",
         datetime: "2022-01-22T15:00",
         href: "#",
       },
       {
         id: 5,
-        name: "Hockey game",
-        time: "7PM",
+        name: "",
+        time: "",
         datetime: "2022-01-22T19:00",
         href: "#",
       },
@@ -119,8 +120,8 @@ const days = [
     events: [
       {
         id: 7,
-        name: "Cinema with friends",
-        time: "9PM",
+        name: "",
+        time: "",
         datetime: "2022-02-04T21:00",
         href: "#",
       },
